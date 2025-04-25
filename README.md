@@ -1,8 +1,22 @@
+[![Docker Image Version](https://img.shields.io/docker/v/ls250824/run-website-apache-picsum?sort=semver)](https://hub.docker.com/r/ls250824/run-website-apache-picsum)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ls250824/run-website-apache-picsum)](https://hub.docker.com/r/ls250824/run-website-apache-picsum)
+
 # run-website-apache-picsum
 
 ## Synopsis
 
 Load random picture from picsum and display it as a webpage.
+
+## Project structure
+
+```text
+run-website-apache-picsum/
+├── public/                  # Static web content (served by Apache)
+│   └── index.html           # Main HTML page with Picsum image loading
+├── Dockerfile               # Docker build file for Apache + your site
+├── docker-compose.yml       # Docker Compose file for quick run/start
+├── build-docker.py          # Optional script to build & push Docker images
+```
 
 ## Available Images
 
@@ -16,38 +30,33 @@ Base Image: httpd:2.4
 docker pull ls250824/run-website-apache-picsum:25042025
 ```
 
-## Build Manual
+## Usage Flow Summary
 
 ```bash
 cd run-website-apache-picsum
 ```
 
-### Build Docker image
+### Build locally
 
 ```bash
 docker build -t run-website-apache-picsum .
-```
-
-## Run the container
-
-```bash
 docker run -d -p 8080:80 run-website-apache-picsum
 ```
 
-## Build and run with docker compose
+### Or with Compose
 
 ```bash
-docker compose -f docker-compose.yml build
-docker compose up 
+docker compose build
+docker compose up
 ```
 
-## Website
+## Port Mapping
 
-- [Local Website](http://localhost:8080)
+| Internal Container Port | Exposed Host Port | Description                                 |
+|-------------------------|-------------------|---------------------------------------------|
+| 80                      | 8080              | Apache serves the website on port 80 inside the container, exposed on port 8080 |
 
-## Build and push to hub.docker.com
-
-### `build-docker.py` script options
+## To push to Docker Hub (via script)
 
 | Option         | Description                                         | Default                |
 |----------------|-----------------------------------------------------|------------------------|
