@@ -2,6 +2,8 @@
 
 # run-website-apache-picsum
 
+![Website screenshot](images/Website.jpg)
+
 ## Synopsis
 
 Load random picture from picsum and display it as a webpage.
@@ -57,7 +59,10 @@ docker buildx inspect --bootstrap
 ```
 
 ```bash
-docker buildx build --platform linux/amd64,linux/arm64 -t <username>/run-website-apache-picsum:<version> -f Dockerfile   --push  .
+docker buildx build --platform linux/amd64,linux/arm64 \
+-t <username>/run-website-apache-picsum:<version> \
+-f Dockerfile \  
+--push  .
 ```
 
 ## Port Mapping
