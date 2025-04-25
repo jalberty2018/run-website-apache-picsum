@@ -49,6 +49,17 @@ docker compose build
 docker compose up
 ```
 
+### Build and push for multiarch
+
+```bash
+docker buildx create --name multiarch-builder --use
+docker buildx inspect --bootstrap
+```
+
+```bash
+docker buildx build --platform linux/amd64,linux/arm64 -t <username>/run-website-apache-picsum:<version> -f Dockerfile   --push  .
+```
+
 ## Port Mapping
 
 | Internal Container Port | Exposed Host Port | Description                                 |
