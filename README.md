@@ -10,7 +10,7 @@ Load random picture from picsum and display it as a webpage.
 
 Base Image: httpd:2.4
 
-#### Custom Build: 
+#### Custom Build
 
 ```bash
 docker pull ls250824/run-website-apache-picsum:25042025
@@ -34,16 +34,16 @@ docker build -t run-website-apache-picsum .
 docker run -d -p 8080:80 run-website-apache-picsum
 ```
 
-## Run with docker compose
+## Build and run with docker compose
 
 ```bash
-docker-compose up --build
+docker compose -f docker-compose.yml build
+docker compose up 
 ```
 
 ## Website
 
-- http://localhost:8080
-
+- [Local Website](http://localhost:8080)
 
 ## Build and push to hub.docker.com
 
