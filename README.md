@@ -1,5 +1,4 @@
 [![Docker Image Version](https://img.shields.io/docker/v/ls250824/run-website-apache-picsum?sort=semver)](https://hub.docker.com/r/ls250824/run-website-apache-picsum)
-[![Docker Pulls](https://img.shields.io/docker/pulls/ls250824/run-website-apache-picsum)](https://hub.docker.com/r/ls250824/run-website-apache-picsum)
 
 # run-website-apache-picsum
 
@@ -27,7 +26,7 @@ Base Image: httpd:2.4
 #### Custom Build
 
 ```bash
-docker pull ls250824/run-website-apache-picsum:25042025
+docker pull ls250824/run-website-apache-picsum:<version>
 ```
 
 ## Usage Flow Summary
@@ -68,8 +67,9 @@ Run the following command to clone the repository and build the image:
 
 ```bash
 git clone https://github.com/jalberty2018/run-website-apache-picsum.git
+cp run-website-apache-picsum/build-docker.py ..
 
-python3 run-website-apache-picsum/build-docker.py \
+python3 build-docker.py \
 --username=<your_dockerhub_username> \
 --tag=<custom_tag> \ 
 run-website-apache-picsum
